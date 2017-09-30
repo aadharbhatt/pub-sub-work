@@ -2,10 +2,11 @@ import google.cloud
 from google.cloud import pubsub
 
 
-publisher = pubsub.PublisherClient()
+
 subscriber = pubsub.SubscriberClient()
 
 def pub(msg):
+    publisher = pubsub.PublisherClient()
     msg_encode = msg
     print msg_encode
     print 'in pub',type(msg),type(msg_encode)

@@ -1,10 +1,6 @@
 import google.cloud
 from google.cloud import pubsub
 
-
-
-subscriber = pubsub.SubscriberClient()
-
 def pub(msg):
     publisher = pubsub.PublisherClient()
     msg_encode = msg
@@ -16,6 +12,7 @@ def pub(msg):
 
 
 def sub():
+    subscriber = pubsub.SubscriberClient()
     sub_topic = 'projects/{project}/subscriptions/{subscription}'.format(project=project_id,subscription=pubsub_subscription)
     subs = subscriber.subscribe(sub_topic)
 

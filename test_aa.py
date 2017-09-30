@@ -33,11 +33,11 @@ def sub():
             print('Received message: {}'.format(message))
             message.ack()
 
-        subscriber.subscribe(subscription_path, callback=callback)
+        subs.subscribe(sub_topic, callback=callback)
 
         # The subscriber is non-blocking, so we must keep the main thread from
         # exiting to allow it to process messages in the background.
-        print('Listening for messages on {}'.format(subscription_path))
+        print('Listening for messages on {}'.format(subs))
         while True:
             time.sleep(60)
 
